@@ -1,16 +1,22 @@
 name: Lint Code
+
 on: [push, pull_request]
+
 jobs:
   lint:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
+      - name: Repository auschecken
         uses: actions/checkout@v2
-      - name: Set up Node.js
+
+      - name: Node.js einrichten
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Install Dependencies
-          run: npm install
-      - name: Run Linter
-          run: npx eslint .
+
+      - name: Abhängigkeiten installieren
+        run: npm install
+
+      - name: Linter ausführen
+        run: npx eslint .
